@@ -8,11 +8,27 @@ const InputTask = ({
   setFilterTodo,
 }) => {
   useEffect(() => {
+    getLocalTodos();
+  }, []);
+  useEffect(() => {
     console.log("jey");
     sortUncomplete();
     sortComplete();
     sortAll();
+    saveLocalTodos();
   }, [todo]);
+
+  const saveLocalTodos = () => {
+    localStorage.setItem("todo", JSON.stringify(todo));
+  };
+  const getLocalTodos = () => {
+    if (localStorage.getItem("todo") == null) {
+      localStorage.setItem("todo", JSON.stringify([]));
+    } else {
+      let todoLocal = JSON.parse(localStorage.getItem("todo"));
+      setTodo(todoLocal);
+    }
+  };
 
   const readInput = (e) => {
     setInputTask(e.target.value);
