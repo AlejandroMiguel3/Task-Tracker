@@ -55,22 +55,40 @@ const InputTask = ({
     setFilterTodo(todo);
   };
   return (
-    <>
-      <div>
+    <section className="input-task">
+      <div className="input-add d-flex-row align-items-center justify-content-between full-width">
         <input
           value={inputTask}
           type="text"
           onChange={readInput}
           placeholder="Add an item"
+          className="input-add__todo"
         />
-        <button onClick={addTask}>Add</button>
+        <button
+          className="button-add"
+          style={{ padding: "7px" }}
+          onClick={addTask}
+        >
+          <svg height="24px" viewBox="0 0 24 24" width="24px">
+            <path
+              className="button-add__color"
+              d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"
+            />
+          </svg>
+        </button>
       </div>
-      <div>
-        <button onClick={() => sortAll()}>All</button>
-        <button onClick={() => sortComplete()}>Done</button>
-        <button onClick={() => sortUncomplete()}>Uncomplete </button>
+      <div className="button-sort">
+        <button className="button-sort__todo" onClick={() => sortAll()}>
+          All
+        </button>
+        <button className="button-sort__todo" onClick={() => sortComplete()}>
+          Done
+        </button>
+        <button className="button-sort__todo" onClick={() => sortUncomplete()}>
+          Uncomplete{" "}
+        </button>
       </div>
-    </>
+    </section>
   );
 };
 export default InputTask;
