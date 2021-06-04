@@ -485,6 +485,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 100%;
 }
 .input-add {
   grid-column: 3 / 4;
@@ -508,6 +509,7 @@ body {
     }
     &:focus {
       outline: none;
+      transition: box-shadow 20s;
       box-shadow: $shadow;
     }
   }
@@ -556,5 +558,73 @@ body {
       outline: none;
       box-shadow: $inner-shadow;
     }
+  }
+}
+.todos {
+  margin: 2rem 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  &-item {
+    word-break: break-all;
+    list-style: none;
+    height: fit-content;
+    width: 100%;
+    border: none;
+    border-radius: $borderRadiusHalf;
+    font-size: 0.8rem;
+    padding: 1.4rem;
+    box-shadow: $inner-shadow;
+    background: none;
+    transition: box-shadow 0.3s;
+    &__uncompleted {
+      word-break: break-all;
+      list-style: none;
+      height: fit-content;
+      width: 100%;
+      border: none;
+      border-radius: $borderRadiusHalf;
+      font-size: 0.8rem;
+      padding: 1.4rem;
+      box-shadow: $shadow;
+      background: none;
+      transition: box-shadow 0.3s;
+    }
+    &__container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    &__text {
+      font-family: Montserrat-Regular;
+    }
+    &__button {
+      border: none;
+      border-radius: $borderRadiusFull;
+      box-shadow: $shadow;
+      background: none;
+      outline: none;
+      padding: 0.6rem;
+      height: fit-content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &__delete {
+        fill: $red;
+      }
+      &__done {
+        fill: $green;
+      }
+      &:active {
+        box-shadow: $inner-shadow;
+      }
+    }
+  }
+  &-button {
+    display: flex;
+    gap: 0.5rem;
   }
 }
