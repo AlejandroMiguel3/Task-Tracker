@@ -9,19 +9,22 @@ function App() {
   const [filterTodo, setFilterTodo] = useState([]);
 
   return (
-    <div className="container">
-      <section className="d-flex-col align-items-start">
-        <InputTask
-          inputTask={inputTask}
-          setInputTask={setInputTask}
-          todo={todo}
-          setTodo={setTodo}
-          filterTodo={filterTodo}
-          setFilterTodo={setFilterTodo}
-        />
-        <TodoList todo={todo} setTodo={setTodo} filterTodo={filterTodo} />
-      </section>
-    </div>
+    <>
+      <div className="container">
+        <section className="d-flex-col align-items-start">
+          <InputTask
+            inputTask={inputTask}
+            setInputTask={setInputTask}
+            todo={todo}
+            setTodo={setTodo}
+            filterTodo={filterTodo}
+            setFilterTodo={setFilterTodo}
+          />
+          <TodoList todo={todo} setTodo={setTodo} filterTodo={filterTodo} />
+        </section>
+      </div>
+      <div className="background"></div>
+    </>
   );
 }
 

@@ -480,6 +480,7 @@ body {
   margin: 2rem auto 0;
   padding: 0 2rem;
   width: auto;
+  position: relative;
 }
 .input-task {
   display: flex;
@@ -493,7 +494,7 @@ body {
 
   &__todo {
     height: 2.3rem;
-    width: 13rem;
+    width: 100%;
     border: none;
     border-radius: $borderRadiusFull;
     font-size: 0.8rem;
@@ -515,6 +516,8 @@ body {
   }
 }
 .button-add {
+  margin-left: 1rem;
+  cursor: pointer;
   height: 2.3rem;
   border: none;
   border-radius: $borderRadiusFull;
@@ -538,7 +541,9 @@ body {
   gap: 0.5rem;
   font-family: Montserrat-Bold;
   color: #ec7e52;
+  flex-wrap: wrap;
   &__todo {
+    cursor: pointer;
     height: 1.9rem;
     border: none;
     border-radius: $borderRadiusFull;
@@ -561,7 +566,7 @@ body {
   }
 }
 .todos {
-  margin: 2rem 0;
+  margin-top: 2rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -612,6 +617,7 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
       &__delete {
         fill: $red;
       }
@@ -627,4 +633,17 @@ body {
     display: flex;
     gap: 0.5rem;
   }
+}
+.background {
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-image: url(./SVG/Mobile-Bg.svg);
+  background-size: 40rem 20rem;
+  background-position: bottom;
+  margin-top: -10.23rem;
+}
+
+@media screen and (max-width: 1400px) {
 }
