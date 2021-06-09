@@ -23,7 +23,7 @@ function App() {
           <TodoList todo={todo} setTodo={setTodo} filterTodo={filterTodo} />
         </section>
       </div>
-      <div className="background"></div>
+      {/* <div className="background"></div> */}
     </>
   );
 }
