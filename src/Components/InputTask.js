@@ -11,7 +11,6 @@ const InputTask = ({
     getLocalTodos();
   }, []);
   useEffect(() => {
-    console.log("jey");
     sortUncomplete();
     sortComplete();
     sortAll();
@@ -54,6 +53,10 @@ const InputTask = ({
   const sortAll = () => {
     setFilterTodo(todo);
   };
+  const progressMax = todo.length;
+  const progressMin = todo.filter((item) => item.completed === true).length;
+  const progressPercentage = ((progressMin / progressMax) * 100).toFixed(0);
+
   return (
     <section className="input-task">
       <div className="input-add d-flex-row align-items-center justify-content-between full-width">
@@ -77,6 +80,12 @@ const InputTask = ({
           </svg>
         </button>
       </div>
+      <progress value={progressMin} max={progressMax}></progress>
+      <p>
+        {progressPercentage != "NaN"
+          ? `${progressPercentage}%`
+          : "No task assigned yet"}
+      </p>
       <div className="button-sort">
         <button className="button-sort__todo" onClick={() => sortAll()}>
           All

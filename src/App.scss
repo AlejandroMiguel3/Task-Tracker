@@ -20,7 +20,7 @@
 }
 
 $grey: #f0f0f0;
-$orange: #ec7e52;
+$orange: rgb(236, 126, 82);
 $green: #81a040;
 $red: #ec5252;
 
@@ -63,6 +63,9 @@ $shadow: -4px -4px 9px rgba(255, 255, 255, 0.75),
 $inner-shadow: inset -4px -4px 9px rgba(255, 255, 255, 0.75),
   inset 4px 4px 9px rgba(0, 0, 0, 0.15);
 
+$progress-shadow: inset 4px 4px 9px rgba(236, 126, 82, 0.75),
+  inset -4px -4px 9px rgba(0, 0, 0, 0.15);
+
 body {
   background-color: $grey;
   font-size: clamp(($bodyMin), $fontScaler, $bodyMax);
@@ -77,6 +80,25 @@ body {
 ::-webkit-scrollbar-thumb {
   border-radius: 8px;
   background: $orange;
+}
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 100%;
+  height: 1.3rem;
+}
+progress[value]::-webkit-progress-bar {
+  background-color: $grey;
+  border-radius: $borderRadiusFull;
+  box-shadow: $inner-shadow;
+}
+progress[value]::-webkit-progress-value {
+  box-shadow: $progress-shadow;
+  border-radius: $borderRadiusFull;
+  background-color: $orange;
+  transition: ease 0.5s;
 }
 
 /* padding top scales */
@@ -513,6 +535,7 @@ body {
     box-shadow: $inner-shadow;
     background: none;
     font-family: inherit;
+    font-size: 1rem;
     color: var(--greyDark);
     transition: box-shadow 20s;
 
