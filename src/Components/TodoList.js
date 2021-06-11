@@ -10,7 +10,6 @@ const TodoList = ({ todo, setTodo, filterTodo }) => {
       if (item.id === id) {
         return { ...item, completed: !item.completed };
       }
-      console.log(item.completed);
       return item;
     });
     return setTodo(checkItem);
