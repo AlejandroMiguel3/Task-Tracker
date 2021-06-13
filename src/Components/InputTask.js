@@ -86,7 +86,14 @@ const InputTask = ({
         </button>
       </form>
       <ProgressBar progressMax={progressMax} progressMin={progressMin} />
-      <h5>{progressPercentage != "NaN" ? `${progressPercentage}%` : ""}</h5>
+      <div className="d-flex-row justify-content-between">
+        <h6>
+          {progressPercentage != "NaN"
+            ? `Items: ${progressMin}/${progressMax}`
+            : ""}
+        </h6>
+        <h6>{progressPercentage != "NaN" ? `${progressPercentage}%` : ""}</h6>
+      </div>
       <div className="button-sort">
         <button className="button-sort__todo" onClick={() => sortAll()}>
           All
