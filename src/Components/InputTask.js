@@ -30,19 +30,24 @@ const InputTask = ({
   };
 
   const readInput = (e) => {
+    e.preventDefault();
     setInputTask(e.target.value);
   };
   const addTask = (e) => {
     e.preventDefault();
-    setTodo([
-      ...todo,
-      {
-        task: inputTask,
-        id: new Date().getTime().toString(),
-        completed: false,
-      },
-    ]);
-    setInputTask("");
+    if (!inputTask) {
+      console.log("empty");
+    } else {
+      setTodo([
+        ...todo,
+        {
+          task: inputTask,
+          id: new Date().getTime().toString(),
+          completed: false,
+        },
+      ]);
+      setInputTask("");
+    }
   };
   const sortUncomplete = () => {
     setFilterTodo(todo.filter((item) => item.completed === false));
@@ -59,7 +64,7 @@ const InputTask = ({
 
   return (
     <section className="input-task">
-      <div className="input-add d-flex-row align-items-center justify-content-between full-width">
+      <form className="input-add d-flex-row align-items-center justify-content-between full-width">
         <input
           value={inputTask}
           type="text"
@@ -79,13 +84,9 @@ const InputTask = ({
             />
           </svg>
         </button>
-      </div>
-      <progress value={progressMin} max={progressMax}></progress>
-      <p>
-        {progressPercentage != "NaN"
-          ? `${progressPercentage}%`
-          : "No task assigned yet"}
-      </p>
+      </form>
+      <ProgressBar progressMax={progressMax} progressMin={progressMin} />
+      <h5>{progressPercentage != "NaN" ? `${progressPercentage}%` : ""}</h5>
       <div className="button-sort">
         <button className="button-sort__todo" onClick={() => sortAll()}>
           All
@@ -99,5 +100,11 @@ const InputTask = ({
       </div>
     </section>
   );
+};
+const ProgressBar = ({ progressMax, progressMin }) => {
+  if (progressMax !== 0) {
+    return <progress value={progressMin} max={progressMax}></progress>;
+  }
+  return <></>;
 };
 export default InputTask;

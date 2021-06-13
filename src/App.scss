@@ -616,6 +616,7 @@ progress[value]::-webkit-progress-value {
     box-shadow: $inner-shadow;
     background: none;
     transition: box-shadow 0.3s;
+    color: #7c7c7cb4;
     &__uncompleted {
       word-break: break-all;
       list-style: none;

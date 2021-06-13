@@ -1,5 +1,5 @@
 import React from "react";
-
+// import { Power3, TweenMax } from "gsap";
 const TodoList = ({ todo, setTodo, filterTodo }) => {
   const removeTodo = (id) => {
     const newTodoList = todo.filter((todoItem) => todoItem.id !== id);
@@ -15,6 +15,17 @@ const TodoList = ({ todo, setTodo, filterTodo }) => {
     return setTodo(checkItem);
   };
 
+  // let taskItem = useRef();
+
+  // useEffect(() => {
+  //   TweenMax.from(taskItem, { opacity: 0, y: -200 });
+  //   TweenMax.to(taskItem, 0.8, {
+  //     opacity: 1,
+  //     y: 0,
+  //     ease: Power3.easeOut,
+  //   });
+  //   console.log("hello");
+  // }, [todo]);
   return (
     <>
       <div className="full-width">
