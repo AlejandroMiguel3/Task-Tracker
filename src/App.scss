@@ -63,7 +63,7 @@ $shadow: -4px -4px 9px rgba(255, 255, 255, 0.75),
 $inner-shadow: inset -4px -4px 9px rgba(255, 255, 255, 0.75),
   inset 4px 4px 9px rgba(0, 0, 0, 0.15);
 
-$progress-shadow: inset 4px 4px 9px rgba(236, 126, 82, 0.75),
+$progress-shadow: inset 4px 4px 9px #82a040c0,
   inset -4px -4px 9px rgba(0, 0, 0, 0.15);
 
 body {
@@ -97,7 +97,7 @@ progress[value]::-webkit-progress-bar {
 progress[value]::-webkit-progress-value {
   box-shadow: $progress-shadow;
   border-radius: $borderRadiusFull;
-  background-color: $orange;
+  background-color: $green;
   transition: ease 0.5s;
 }
 
